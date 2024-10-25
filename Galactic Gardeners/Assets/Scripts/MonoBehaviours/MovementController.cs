@@ -23,20 +23,31 @@ public class MovementController : MonoBehaviour
         walkEast = 1,
         walkSouth = 2,
         walkWest = 3,
-        walkNorth = 4
+        walkNorth = 4,
+        attackEast = 5,
+        attackSouth = 6,
+        attackWest = 7,
+        attackNorth = 8,
+        attackBowEast = 9,
+        attackBowSouth = 10,
+        attackBowWest = 11,
+        attackBowNorth = 12
     }
+
+    // Propiedad pública para almacenar la última dirección
+    public int LastDirection { get; private set; } = (int)CharStates.walkSouth;
 
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        lastDirection = CharStates.walkSouth; // Dirección inicial (sur)
     }
 
     void Update()
     {
         UpdateState();
+        CheckForAttacks();
     }
 
     private void UpdateState()
@@ -45,25 +56,25 @@ public class MovementController : MonoBehaviour
         {
             animator.enabled = true; // Habilita la animación
             animator.SetInteger(animationState, (int)CharStates.walkEast);
-            lastDirection = CharStates.walkEast;
+            LastDirection = (int)CharStates.walkEast;
         }
         else if (movement.x < 0)
         {
             animator.enabled = true;
             animator.SetInteger(animationState, (int)CharStates.walkWest);
-            lastDirection = CharStates.walkWest;
+            LastDirection = (int)CharStates.walkWest;
         }
         else if (movement.y > 0)
         {
             animator.enabled = true;
             animator.SetInteger(animationState, (int)CharStates.walkNorth);
-            lastDirection = CharStates.walkNorth;
+            LastDirection = (int)CharStates.walkNorth;
         }
         else if (movement.y < 0)
         {
             animator.enabled = true;
             animator.SetInteger(animationState, (int)CharStates.walkSouth);
-            lastDirection = CharStates.walkSouth;
+            LastDirection = (int)CharStates.walkSouth;
         }
         else
         {
@@ -71,6 +82,60 @@ public class MovementController : MonoBehaviour
             animator.enabled = false;
             SetIdleSprite();
         }
+    }
+
+    private void CheckForAttacks()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) // Ataque sin arma
+        {
+            Debug.Log("Ataque sin arma detectado");
+            AttackWithoutWeapon();
+        }
+        else if (Input.GetKeyDown(KeyCode.J)) // Cambia esto por la tecla 'J' para el ataque con arco
+        {
+            Debug.Log("Ataque con arco detectado");
+            AttackWithBow();
+        }
+    }
+
+    private void AttackWithoutWeapon()
+    {
+        switch (LastDirection)
+        {
+            case (int)CharStates.walkEast:
+                animator.SetInteger(animationState, (int)CharStates.attackEast);
+                break;
+            case (int)CharStates.walkSouth:
+                animator.SetInteger(animationState, (int)CharStates.attackSouth);
+                break;
+            case (int)CharStates.walkWest:
+                animator.SetInteger(animationState, (int)CharStates.attackWest);
+                break;
+            case (int)CharStates.walkNorth:
+                animator.SetInteger(animationState, (int)CharStates.attackNorth);
+                break;
+        }
+        animator.SetTrigger("AttackWithoutWeapon");
+    }
+
+    private void AttackWithBow()
+    {
+        switch (LastDirection)
+        {
+            case (int)CharStates.walkEast:
+                animator.SetInteger(animationState, (int)CharStates.attackBowEast);
+                break;
+            case (int)CharStates.walkSouth:
+                animator.SetInteger(animationState, (int)CharStates.attackBowSouth);
+                break;
+            case (int)CharStates.walkWest:
+                animator.SetInteger(animationState, (int)CharStates.attackBowWest);
+                break;
+            case (int)CharStates.walkNorth:
+                animator.SetInteger(animationState, (int)CharStates.attackBowNorth);
+                break;
+        }
+        animator.SetTrigger("AttackWithBow");
     }
 
     private void FixedUpdate()
