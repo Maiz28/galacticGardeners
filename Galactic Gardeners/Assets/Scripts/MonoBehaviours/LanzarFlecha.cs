@@ -37,7 +37,7 @@ public class LanzarFlecha : MonoBehaviour
     void Update()
     {
         // Verificamos si la tecla de disparo (por ejemplo, "Fire1") es presionada
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire2"))
         {
             // Activar la animación de disparo dependiendo de la última dirección del jugador
             ActivarAnimacionDisparo(arloWalk.LastDirection);
