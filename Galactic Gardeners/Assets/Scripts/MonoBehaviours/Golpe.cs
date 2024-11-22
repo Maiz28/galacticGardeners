@@ -5,14 +5,14 @@ using UnityEngine;
 public class Golpe : MonoBehaviour
 {
     [SerializeField]
-    private float daño;
+    private float daÃ±o;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Golpe a enemigo");
-            other.GetComponent<Enemy>().TomarDaño(daño);
+            other.GetComponent<Enemy>().TomarDaÃ±o(daÃ±o);
         }
     }
 }

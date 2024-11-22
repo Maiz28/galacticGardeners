@@ -8,23 +8,23 @@ public class Flecha : MonoBehaviour
     private float velocidad;
 
     [SerializeField]
-    private float daño;
+    private float daÃ±o;
 
     private Vector2 direccion;
 
     private void Start()
     {
-        // Busca el componente ArloWalk en la escena y obtiene la última dirección
+        // Busca el componente ArloWalk en la escena y obtiene la Ãºltima direcciÃ³n
         ArloWalk arloWalk = FindObjectOfType<ArloWalk>();
 
         if (arloWalk != null)
         {
-            // Establece la dirección y orientación de la flecha basada en la última dirección de Arlo
+            // Establece la direcciÃ³n y orientaciÃ³n de la flecha basada en la Ãºltima direcciÃ³n de Arlo
             EstablecerDireccionYRotacion(arloWalk.LastDirection);
         }
         else
         {
-            Debug.LogWarning("No se encontró el componente ArloWalk en la escena.");
+            Debug.LogWarning("No se encontrÃ³ el componente ArloWalk en la escena.");
         }
     }
 
@@ -34,34 +34,34 @@ public class Flecha : MonoBehaviour
         {
             case ArloWalk.CharStates.walkNorth:
                 direccion = Vector2.up;
-                transform.rotation = Quaternion.identity; // Sin rotación
+                transform.rotation = Quaternion.identity; // Sin rotaciÃ³n
                 break;
 
             case ArloWalk.CharStates.walkSouth:
                 direccion = Vector2.down;
-                transform.rotation = Quaternion.identity; // Sin rotación
+                transform.rotation = Quaternion.identity; // Sin rotaciÃ³n
                 GetComponent<SpriteRenderer>().flipY = true; // Flip en Y
                 break;
 
             case ArloWalk.CharStates.walkEast:
                 direccion = Vector2.right;
-                transform.rotation = Quaternion.Euler(0, 0, -90); // Rotación de -90 grados en Z
+                transform.rotation = Quaternion.Euler(0, 0, -90); // RotaciÃ³n de -90 grados en Z
                 break;
 
             case ArloWalk.CharStates.walkWest:
                 direccion = Vector2.left;
-                transform.rotation = Quaternion.Euler(0, 0, 90); // Rotación de 90 grados en Z
+                transform.rotation = Quaternion.Euler(0, 0, 90); // RotaciÃ³n de 90 grados en Z
                 break;
 
             default:
-                Debug.LogWarning("La dirección de la flecha no está definida.");
+                Debug.LogWarning("La direcciÃ³n de la flecha no estÃ¡ definida.");
                 break;
         }
     }
 
     private void Update()
     {
-        // Mueve la flecha en la dirección establecida
+        // Mueve la flecha en la direcciÃ³n establecida
         transform.Translate(direccion * velocidad * Time.deltaTime, Space.World);
     }
 
@@ -69,8 +69,8 @@ public class Flecha : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Flecha colisionó con el enemigo");
-            other.GetComponent<Enemy>().TomarDaño(daño);
+            Debug.Log("Flecha colisionÃ³ con el enemigo");
+            other.GetComponent<Enemy>().TomarDaÃ±o(daÃ±o);
             Destroy(gameObject);
         }
     }

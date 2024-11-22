@@ -8,16 +8,16 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private GameObject efectoMuerte;
 
-    public void TomarDaño(float daño)
+    public void TomarDaÃ±o(float daÃ±o)
     {
-        vida -= daño;
+        vida -= daÃ±o;
         if (vida <= 0)
         {
             Muerte();
         }
     }
 
-    private void Muerte() 
+    private void Muerte()
     {
         Instantiate(efectoMuerte, transform.position, Quaternion.identity);
         Destroy(gameObject);

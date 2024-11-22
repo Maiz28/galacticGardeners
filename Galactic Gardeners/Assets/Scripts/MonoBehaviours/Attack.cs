@@ -5,10 +5,10 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     [SerializeField]
-    private Transform controladorDañoGolpe; // Controlador que contiene el script de Golpe y el collider
+    private Transform controladorDaÃ±oGolpe; // Controlador que contiene el script de Golpe y el collider
 
     private Animator animator;  // Referencia al Animator del personaje
-    private ArloWalk arloWalk;  // Referencia al script ArloWalk para obtener la última dirección
+    private ArloWalk arloWalk;  // Referencia al script ArloWalk para obtener la ï¿½ltima direcciï¿½n
 
     // Triggers para las animaciones de ataque
     private string attackNorthTrigger = "AttackNorth";
@@ -22,26 +22,26 @@ public class Attack : MonoBehaviour
         animator = GetComponent<Animator>();
         arloWalk = GetComponent<ArloWalk>();
 
-        // Asegurarse de que el collider del golpe esté desactivado al inicio
-        controladorDañoGolpe.gameObject.SetActive(false);
+        // Asegurarse de que el collider del golpe estï¿½ desactivado al inicio
+        controladorDaÃ±oGolpe.gameObject.SetActive(false);
 
         if (animator == null)
         {
-            Debug.LogError("No se encontró el componente Animator en el personaje.");
+            Debug.LogError("No se encontrï¿½ el componente Animator en el personaje.");
         }
 
         if (arloWalk == null)
         {
-            Debug.LogError("No se encontró el script ArloWalk en el personaje.");
+            Debug.LogError("No se encontrï¿½ el script ArloWalk en el personaje.");
         }
     }
 
     private void Update()
     {
-        // Verificamos si se presiona el botón de ataque
+        // Verificamos si se presiona el botï¿½n de ataque
         if (Input.GetButtonDown("Fire1"))
         {
-            // Activar la animación de ataque dependiendo de la última dirección del personaje
+            // Activar la animaciï¿½n de ataque dependiendo de la ï¿½ltima direcciï¿½n del personaje
             ActivarAnimacionAtaque(arloWalk.LastDirection);
 
             // Activar el collider del golpe por un breve periodo
@@ -51,27 +51,27 @@ public class Attack : MonoBehaviour
 
     private void ActivarAnimacionAtaque(ArloWalk.CharStates ultimaDireccion)
     {
-        // Activar el trigger de animación según la dirección del personaje
+        // Activar el trigger de animaciï¿½n segï¿½n la direcciï¿½n del personaje
         switch (ultimaDireccion)
         {
             case ArloWalk.CharStates.walkNorth:
-                Debug.Log("Activando animación de ataque hacia el norte.");
+                Debug.Log("Activando animaciï¿½n de ataque hacia el norte.");
                 animator.SetTrigger(attackNorthTrigger);
                 break;
             case ArloWalk.CharStates.walkSouth:
-                Debug.Log("Activando animación de ataque hacia el sur.");
+                Debug.Log("Activando animaciï¿½n de ataque hacia el sur.");
                 animator.SetTrigger(attackSouthTrigger);
                 break;
             case ArloWalk.CharStates.walkEast:
-                Debug.Log("Activando animación de ataque hacia el este.");
+                Debug.Log("Activando animaciï¿½n de ataque hacia el este.");
                 animator.SetTrigger(attackEastTrigger);
                 break;
             case ArloWalk.CharStates.walkWest:
-                Debug.Log("Activando animación de ataque hacia el oeste.");
+                Debug.Log("Activando animaciï¿½n de ataque hacia el oeste.");
                 animator.SetTrigger(attackWestTrigger);
                 break;
             default:
-                Debug.LogWarning("Dirección no válida para atacar.");
+                Debug.LogWarning("Direcciï¿½n no vï¿½lida para atacar.");
                 break;
         }
     }
@@ -80,12 +80,12 @@ public class Attack : MonoBehaviour
     private IEnumerator ActivarGolpe()
     {
         // Activar el collider del golpe
-        controladorDañoGolpe.gameObject.SetActive(true);
+        controladorDaÃ±oGolpe.gameObject.SetActive(true);
 
-        // Esperar un breve momento (ajusta el tiempo según lo necesario)
+        // Esperar un breve momento (ajusta el tiempo segï¿½n lo necesario)
         yield return new WaitForSeconds(0.2f);
 
         // Desactivar el collider del golpe
-        controladorDañoGolpe.gameObject.SetActive(false);
+        controladorDaÃ±oGolpe.gameObject.SetActive(false);
     }
 }
