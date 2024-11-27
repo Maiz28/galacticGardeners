@@ -8,7 +8,7 @@ public class menu : MonoBehaviour
     public void Jugar()
     {
         // Asegúrate de que el nombre de la escena esté correctamente especificado
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(4);
     }
 
     public void Salir()
