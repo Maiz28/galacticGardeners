@@ -10,12 +10,12 @@ public class Cuarzo : MonoBehaviour
     // Lista de posiciones donde el cuarzo puede aparecer
     private Vector2[] posiciones = new Vector2[]
     {
-        new Vector2(-0.641f, 0.202f),
-        new Vector2(-0.072f, 0.215f),
+        new Vector2(-0.641f, 0.341f),
+        new Vector2(-0.072f, 0.341f),
         new Vector2(-0.664f, -0.38f),
-        new Vector2(-0.074f, -0.378f),
+        new Vector2(-0.074f, -0.38f),
         new Vector2(-0.643f, -0.979f),
-        new Vector2(-0.078f, -0.971f)
+        new Vector2(-0.078f, -0.979f)
     };
 
     // Tiempo entre apariciones

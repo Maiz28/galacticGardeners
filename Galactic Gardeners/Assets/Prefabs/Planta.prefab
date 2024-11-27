@@ -66,7 +66,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.04360217, y: 0.0034835339}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -77,7 +77,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5401193, y: 2.7052402}
   m_EdgeRadius: 0
 --- !u!212 &4428882468460329025
 SpriteRenderer:
@@ -147,9 +147,9 @@ MonoBehaviour:
   - {fileID: -937691314, guid: 0604f280fdba3ab428c056e42d2207d1, type: 3}
   - {fileID: 1022176758, guid: 0604f280fdba3ab428c056e42d2207d1, type: 3}
   - {fileID: -826372032, guid: 0604f280fdba3ab428c056e42d2207d1, type: 3}
-  - {fileID: 21300000, guid: 521d688269ce416449fb7b0c23487eb5, type: 3}
-  tiempoCrecimiento: 8
-  tiempoParaMorir: 5
+  - {fileID: 1413655988, guid: 276d24e3abb554843a1df46d5dc753ee, type: 3}
+  tiempoCrecimiento: 15
+  tiempoParaMorir: 6
   capaCuarzo:
     serializedVersion: 2
     m_Bits: 128
