@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyFollow : MonoBehaviour
+public class MovementController : MonoBehaviour
 {
     public float movementSpeed = 3.0f; // Velocidad de movimiento
     public Transform player; // Referencia al jugador
@@ -42,26 +42,26 @@ public class EnemyFollow : MonoBehaviour
 
     private void UpdateState()
     {
-        // Si el enemigo se está moviendo
-        if (movement.x > 0)
+        // Actualizamos el movimiento para asegurarnos de que la animación cambie según la dirección del movimiento
+        if (movement.x > 0 && Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
         {
             animator.enabled = true; // Habilita la animación
             animator.SetInteger(animationState, (int)CharStates.walkEast);
             lastDirection = CharStates.walkEast;
         }
-        else if (movement.x < 0)
+        else if (movement.x < 0 && Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
         {
             animator.enabled = true;
             animator.SetInteger(animationState, (int)CharStates.walkWest);
             lastDirection = CharStates.walkWest;
         }
-        else if (movement.y > 0)
+        else if (movement.y > 0 && Mathf.Abs(movement.y) > Mathf.Abs(movement.x))
         {
             animator.enabled = true;
             animator.SetInteger(animationState, (int)CharStates.walkNorth);
             lastDirection = CharStates.walkNorth;
         }
-        else if (movement.y < 0)
+        else if (movement.y < 0 && Mathf.Abs(movement.y) > Mathf.Abs(movement.x))
         {
             animator.enabled = true;
             animator.SetInteger(animationState, (int)CharStates.walkSouth);
