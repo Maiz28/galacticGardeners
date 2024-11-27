@@ -8,6 +8,7 @@ public class ArloHealth : MonoBehaviour
     private float vida;
     [SerializeField]
     private GameObject efectoMuerte;
+    private bool muerto = false; 
 
     public void TomarDaño(float daño2)
     {
@@ -20,7 +21,18 @@ public class ArloHealth : MonoBehaviour
 
     private void Muerte()
     {
+        muerto = true;
         Instantiate(efectoMuerte, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    public float GetVida()
+    {
+        return vida;
+    }
+
+    public bool GetMuerto() // Método que devuelve si el personaje está muerto
+    {
+        return muerto;
     }
 }

@@ -274,3 +274,4 @@ MonoBehaviour:
   vida: 40
   efectoMuerte: {fileID: 7407217836509805519, guid: ae45fa5ab46f3894f987440e95fdc62f, type: 3}
   "da\xF1o": 5
+  "intervaloDa\xF1o": 1
