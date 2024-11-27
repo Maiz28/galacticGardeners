@@ -23,10 +23,12 @@ public class Menupausa : MonoBehaviour
         menuPausa.SetActive(false); // Oculta el menú de pausa
     }
 
-    public void ReiniciarNivel()
+    public void Reiniciar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("Reiniciando nivel...");
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+
     }
 
     public void IrMenuPrincipal()
@@ -34,6 +36,18 @@ public class Menupausa : MonoBehaviour
         Time.timeScale = 1f; // Asegura que el tiempo no esté pausado
         SceneManager.LoadScene(0); // Carga la escena del menú principal
         // Asegúrate de que el nombre "MenuPrincipal" coincida exactamente con el nombre de tu escena en Unity.
+    }
+
+    public void quitar()
+    {
+        // Asegúrate de que el nombre de la escena esté correctamente especificado
+        SceneManager.LoadScene(4);
+    }
+
+    public void siguente()
+    {
+        // Asegúrate de que el nombre de la escena esté correctamente especificado
+        SceneManager.LoadScene(2);
     }
 
 }

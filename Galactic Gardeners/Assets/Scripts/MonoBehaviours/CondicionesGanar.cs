@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CondicionesGanar : MonoBehaviour
 {
+
+    [SerializeField] private GameObject victoria;
+    [SerializeField] private GameObject UI;
+
     private int totalSemillasRecolectadas = 0;
     [SerializeField]
     private ArloHealth arloHealth; // Referencia directa al script de ArloHealth.
@@ -33,13 +38,27 @@ public class CondicionesGanar : MonoBehaviour
 
     private void VerificarCondiciones()
     {
-        // Revisar si no hay enemigos activos y si las semillas recolectadas son 6 o m�s.
+        // Revisar si no hay enemigos activos y si las semillas recolectadas son 6 o más.
         if (EnemigosRestantes() == 0 && totalSemillasRecolectadas >= 6)
         {
-            Debug.Log("�Ganaste!");
+            Debug.Log("¡Ganaste!");
             enabled = false;
+
+            // Verificar si victoria está asignada antes de acceder a ella
+            if (victoria != null)
+            {
+                victoria.SetActive(true);
+                Time.timeScale = 0f;
+                UI.SetActive(false);
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                Debug.LogWarning("La variable 'victoria' no está asignada en el Inspector.");
+            }
         }
     }
+
 
     private void VerificarDerrota()
     {
@@ -54,6 +73,7 @@ public class CondicionesGanar : MonoBehaviour
             Debug.Log("�Perdiste!! (Arlo destruido)");
             enabled = false; // Desactiva este script
         }
+
     }
 
 

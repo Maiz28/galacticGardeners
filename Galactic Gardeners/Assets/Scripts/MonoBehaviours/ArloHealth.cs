@@ -5,6 +5,9 @@ using System;
 
 public class ArloHealth : MonoBehaviour
 {
+    [SerializeField] private GameObject muerte;
+
+
     [SerializeField]
     private float vida;
     [SerializeField]
@@ -27,6 +30,9 @@ public class ArloHealth : MonoBehaviour
         muerto = true;
         Instantiate(efectoMuerte, transform.position, Quaternion.identity);
         Destroy(gameObject, 0.1f);
+        muerte.SetActive(true);
+        Time.timeScale = 0f;
+
     }
 
     public void AumentarVida(float cantidad)
