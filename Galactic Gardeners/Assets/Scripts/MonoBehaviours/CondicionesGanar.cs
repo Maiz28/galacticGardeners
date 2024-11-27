@@ -5,24 +5,18 @@ using UnityEngine;
 public class CondicionesGanar : MonoBehaviour
 {
     private int totalSemillasRecolectadas = 0;
-    private int plantasAdultas = 0; // Contador de plantas adultas.
     [SerializeField]
     private ArloHealth arloHealth; // Referencia directa al script de ArloHealth.
-    [SerializeField]
-    private Planta[] todasLasPlantas; // Referencia a todas las plantas en la escena.
 
     private void Start()
     {
-        // Suscribirse al evento de recolección de semillas.
+        // Suscribirse al evento de recolecciï¿½n de semillas.
         Semillas.sumaSemilla += ActualizarSemillas;
 
         if (arloHealth == null)
         {
             Debug.LogError("Falta asignar el script ArloHealth en el Inspector.");
         }
-
-        // Inicializar el array de plantas
-        todasLasPlantas = FindObjectsOfType<Planta>();
     }
 
     private void Update()
@@ -39,42 +33,29 @@ public class CondicionesGanar : MonoBehaviour
 
     private void VerificarCondiciones()
     {
-        // Verificar si no hay enemigos activos, si las semillas recolectadas son 10 o más,
-        // y si hay al menos 3 plantas adultas.
-        if (EnemigosRestantes() == 0 && totalSemillasRecolectadas >= 10 && HayPlantasAdultas())
+        // Revisar si no hay enemigos activos y si las semillas recolectadas son 6 o mï¿½s.
+        if (EnemigosRestantes() == 0 && totalSemillasRecolectadas >= 6)
         {
-            Debug.Log("¡Ganaste!");
+            Debug.Log("ï¿½Ganaste!");
             enabled = false;
         }
     }
 
     private void VerificarDerrota()
     {
-        // Verifica si arloHealth no es nulo y si el jugador está muerto
+        // Verifica si arloHealth no es nulo y si el jugador estï¿½ muerto
         if (arloHealth != null && arloHealth.GetMuerto())
         {
-            Debug.Log("¡Perdiste!!");
-            enabled = false; // Desactiva este script después de imprimir el mensaje
+            Debug.Log("ï¿½Perdiste!!");
+            enabled = false; // Desactiva este script despuï¿½s de imprimir el mensaje
         }
         else if (arloHealth == null) // Si Arlo ha sido destruido
         {
-            Debug.Log("¡Perdiste!! (Arlo destruido)");
+            Debug.Log("ï¿½Perdiste!! (Arlo destruido)");
             enabled = false; // Desactiva este script
         }
     }
 
-    private bool HayPlantasAdultas()
-    {
-        plantasAdultas = 0;
-        foreach (var planta in todasLasPlantas)
-        {
-            if (planta.EsAdulta())
-            {
-                plantasAdultas++;
-            }
-        }
-        return plantasAdultas >= 3; // Verificar si hay al menos 3 plantas adultas
-    }
 
     private int EnemigosRestantes()
     {

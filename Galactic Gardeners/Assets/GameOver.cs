@@ -1,27 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
-public class Menupausa : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
-    [SerializeField] private GameObject botonPausa;
-    [SerializeField] private GameObject menuPausa;
 
-    public void Pausa()
-    {
-        Time.timeScale = 0f; // Pausa el juego
-        botonPausa.SetActive(false); // Oculta el botón de pausa
-        menuPausa.SetActive(true);  // Muestra el menú de pausa
-    }
+    [SerializeField] private GameObject gameOver;
 
-    public void Reanudar()
-    {
-        Time.timeScale = 1f; // Reanuda el juego
-        botonPausa.SetActive(true); // Muestra el botón de pausa
-        menuPausa.SetActive(false); // Oculta el menú de pausa
-    }
+    public ArloHealth arloHealth;
 
     public void ReiniciarNivel()
     {

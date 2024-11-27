@@ -1,6 +1,7 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ArloHealth : MonoBehaviour
 {
@@ -8,13 +9,15 @@ public class ArloHealth : MonoBehaviour
     private float vida;
     [SerializeField]
     private GameObject efectoMuerte;
-    private bool muerto = false; 
+    private bool muerto = false;
+    public event EventHandler MuerteJugador;
 
-    public void TomarDaño(float daño2)
+    public void TomarDaÃ±o(float daÃ±o2)
     {
-        vida -= daño2;
+        vida -= daÃ±o2;
         if (vida <= 0 && !muerto)
         {
+            MuerteJugador?.Invoke(this, EventArgs.Empty);
             Muerte();
         }
     }
@@ -33,7 +36,7 @@ public class ArloHealth : MonoBehaviour
         vida += cantidad;
         if (vida > 5)
         {
-            vida = 5; // Limita la vida al valor máximo
+            vida = 5; // Limita la vida al valor mï¿½ximo
         }
         Debug.Log("Vida aumentada: " + vida);
     }
@@ -43,7 +46,7 @@ public class ArloHealth : MonoBehaviour
         return vida;
     }
 
-    public bool GetMuerto() // Método que devuelve si el personaje está muerto
+    public bool GetMuerto() // Mï¿½todo que devuelve si el personaje estï¿½ muerto
     {
         return muerto;
     }
