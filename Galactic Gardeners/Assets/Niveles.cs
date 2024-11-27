@@ -27,6 +27,18 @@ public class Niveles : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void jugarnivel2()
+    {
+        // Asegúrate de que el nombre de la escena esté correctamente especificado
+        SceneManager.LoadScene(2);
+    }
+    public void jugarnivel1()
+    {
+        // Asegúrate de que el nombre de la escena esté correctamente especificado
+        SceneManager.LoadScene(1);
+    }
+
+
     public void mapa()
     {
         // Asegúrate de que el nombre de la escena esté correctamente especificado

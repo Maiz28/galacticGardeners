@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/reglas1.unity
     guid: 39865b87f2ea04785b1c0fba2935bac3
   - enabled: 1
-    path: Assets/Scenes/reglas 23.unity
-    guid: 4c0a2e7e7fb9e40dcaea1624c74ae93b
+    path: Assets/Scenes/reglas2.unity
+    guid: 5b30f008e89d34fc4b036800f486d326
   m_configObjects: {}
