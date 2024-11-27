@@ -20,7 +20,6 @@ public class ArloHealth : MonoBehaviour
         vida -= daño2;
         if (vida <= 0 && !muerto)
         {
-            MuerteJugador?.Invoke(this, EventArgs.Empty);
             Muerte();
         }
     }
