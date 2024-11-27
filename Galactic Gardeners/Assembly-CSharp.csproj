@@ -118,6 +118,7 @@
     <Compile Include="Assets/Scripts/MonoBehaviours/TiempoVida.cs" />
     <Compile Include="Assets/menuprincipal.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets/Scripts/MonoBehaviours/ShardMovimiento.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
