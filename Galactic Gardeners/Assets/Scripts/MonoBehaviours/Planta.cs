@@ -101,4 +101,10 @@ public class Planta : MonoBehaviour
         // Verificar si el objeto pertenece a la layer Cuarzo
         return (capaCuarzo.value & (1 << objeto.layer)) != 0;
     }
+
+    public bool EsAdulta()
+    {
+        // Verificar si la planta ha alcanzado su fase adulta (fase 2)
+        return faseActual == 2;
+    }
 }
