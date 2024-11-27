@@ -10,7 +10,7 @@ public class CondicionesGanar : MonoBehaviour
 
     private void Start()
     {
-        // Suscribirse al evento de recolección de semillas.
+        // Suscribirse al evento de recolecciï¿½n de semillas.
         Semillas.sumaSemilla += ActualizarSemillas;
 
         if (arloHealth == null)
@@ -33,25 +33,25 @@ public class CondicionesGanar : MonoBehaviour
 
     private void VerificarCondiciones()
     {
-        // Revisar si no hay enemigos activos y si las semillas recolectadas son 6 o más.
+        // Revisar si no hay enemigos activos y si las semillas recolectadas son 6 o mï¿½s.
         if (EnemigosRestantes() == 0 && totalSemillasRecolectadas >= 6)
         {
-            Debug.Log("¡Ganaste!");
+            Debug.Log("ï¿½Ganaste!");
             enabled = false;
         }
     }
 
     private void VerificarDerrota()
     {
-        // Verifica si arloHealth no es nulo y si el jugador está muerto
+        // Verifica si arloHealth no es nulo y si el jugador estï¿½ muerto
         if (arloHealth != null && arloHealth.GetMuerto())
         {
-            Debug.Log("¡Perdiste!!");
-            enabled = false; // Desactiva este script después de imprimir el mensaje
+            Debug.Log("ï¿½Perdiste!!");
+            enabled = false; // Desactiva este script despuï¿½s de imprimir el mensaje
         }
         else if (arloHealth == null) // Si Arlo ha sido destruido
         {
-            Debug.Log("¡Perdiste!! (Arlo destruido)");
+            Debug.Log("ï¿½Perdiste!! (Arlo destruido)");
             enabled = false; // Desactiva este script
         }
     }
