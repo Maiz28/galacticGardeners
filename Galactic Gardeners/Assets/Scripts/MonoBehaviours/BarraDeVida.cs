@@ -31,12 +31,12 @@ public class BarraDeVida : MonoBehaviour
         }
 
         float vida = arloHealth.GetVida();
-        Debug.Log("Valor de vida al actualizar barra: " + vida); // Verifica el valor de vida
+        //Debug.Log("Valor de vida al actualizar barra: " + vida); // Verifica el valor de vida
 
         // Mapeo de vida (de 0 a 5) a índice del arreglo (de 0 a 4)
         int indice = Mathf.Clamp((int)(vida) - 1, 0, estadosDeVida.Length - 1);
 
-        Debug.Log("Índice de barra de vida seleccionado: " + indice); // Verifica el índice calculado
+        //Debug.Log("Índice de barra de vida seleccionado: " + indice); // Verifica el índice calculado
 
         barraImagen.sprite = estadosDeVida[indice];
     }

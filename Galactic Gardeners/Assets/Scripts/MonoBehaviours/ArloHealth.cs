@@ -13,7 +13,7 @@ public class ArloHealth : MonoBehaviour
     public void TomarDaño(float daño2)
     {
         vida -= daño2;
-        if (vida <= 0)
+        if (vida <= 0 && !muerto)
         {
             Muerte();
         }
@@ -22,8 +22,8 @@ public class ArloHealth : MonoBehaviour
     private void Muerte()
     {
         muerto = true;
-        Instantiate(efectoMuerte, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        //Instantiate(efectoMuerte, transform.position, Quaternion.identity);
+        Destroy(gameObject, 0.1f);
     }
 
     public void AumentarVida(float cantidad)
