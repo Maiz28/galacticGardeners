@@ -25,7 +25,7 @@ public class ArloHealth : MonoBehaviour
     private void Muerte()
     {
         muerto = true;
-        //Instantiate(efectoMuerte, transform.position, Quaternion.identity);
+        Instantiate(efectoMuerte, transform.position, Quaternion.identity);
         Destroy(gameObject, 0.1f);
     }
 
