@@ -26,6 +26,18 @@ public class ArloHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void AumentarVida(float cantidad)
+    {
+        if (muerto) return;
+
+        vida += cantidad;
+        if (vida > 5)
+        {
+            vida = 5; // Limita la vida al valor máximo
+        }
+        Debug.Log("Vida aumentada: " + vida);
+    }
+
     public float GetVida()
     {
         return vida;
