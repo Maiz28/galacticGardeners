@@ -16,4 +16,10 @@ public class menu : MonoBehaviour
         Debug.Log("Salir...");
         Application.Quit();
     }
+    public void mapa()
+    {
+        // Asegúrate de que el nombre de la escena esté correctamente especificado
+        SceneManager.LoadScene(3);
+    }
+
 }
