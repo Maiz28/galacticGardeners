@@ -19,7 +19,7 @@ public class Niveles : MonoBehaviour
     public void nivel3()
     {
         // Asegúrate de que el nombre de la escena esté correctamente especificado
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(6);
     }
     public void menuprincipal()
     {
