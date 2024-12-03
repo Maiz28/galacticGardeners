@@ -40,7 +40,7 @@ public class CondicionesGanar : MonoBehaviour
     {
 
         // Revisar si no hay enemigos activos y si las semillas recolectadas son 6 o m�s.
-        if (EnemigosRestantes() == 0 && totalSemillasRecolectadas >= 10)
+        if (EnemigosRestantes() == 0 && totalSemillasRecolectadas >= 6)
 
         {
             Debug.Log("¡Ganaste!");
