@@ -13,7 +13,7 @@ public class ArloHealth : MonoBehaviour
     [SerializeField]
     private GameObject efectoMuerte;
     private bool muerto = false;
-    public event EventHandler MuerteJugador;
+
 
     public void TomarDaño(float daño2)
     {
